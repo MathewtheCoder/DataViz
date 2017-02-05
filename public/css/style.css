@@ -1,0 +1,60 @@
+* {
+box-sizing: border-box;
+}
+body {
+	background: #ccc;
+}
+
+p,a,h1,h2,h3{
+	color: #FFFFFF !important;
+}
+.navbar {
+	background: #303F9F !important;
+}
+.active {
+	background-color: #3F51B5
+}
+.chart-wrapper {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.chart-wrapper .chart-title {
+    border-bottom: 1px solid #d7d7d7;
+    color: #666;
+    font-size: 14px;
+    font-weight: 200;
+    padding: 7px 10px 4px;
+}
+.chart-wrapper .chart-stage {
+    overflow: hidden;
+    padding: 5px 10px;
+    position: relative;
+}
+.chart-wrapper .chart-notes {
+    background: #fbfbfb;
+    border-top: 1px solid #e2e2e2;
+    color: #808080;
+    font-size: 12px;
+    padding: 8px 10px 5px;
+}
+.plat img {
+	width: 500px !important;
+	height: 300px !important;
+	padding: 0 10px 0 10px;
+	vertical-align: middle;
+}
+
+.plat a {
+	font-size: 18px;
+	color: #757575 !important;
+	padding: 10px 100px 10px 100px;
+}
+.plat {
+	padding-top: 200px;
+}
+
+/*.box {*/
+
+/*}*/

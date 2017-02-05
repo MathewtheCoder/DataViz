@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/public/css/style.css">
+	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+  	<script src="/d3.v3.min.js"></script>
+  	<script src="/dimple.v2.1.2.min.js"></script>
+    <style>
+    body {
+      margin: 50px;
+    }
+    </style>
+ </head>
+ <body>
+<!-- navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="navbar-brand" href="/">ABinBEV DataVisApp</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
+          <li><a  class="active" href="/post">PostEventLoop</a></li>
+          <li><a href="/whatif">WhatIfAnalyser</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbarend -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Price Elasticity
+          </div>
+          <div class="chart-stage">
+
+ <div id="chartContainer30">
+  <!-- <script src="/lib/d3.v4.3.0.js"></script> -->
+  <!-- <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script> -->
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainer30", 590, 400);
+    d3.csv("/public/test1.csv", function (data) {
+      data = dimple.filterData(data, "Brewer", ["ABI"]);
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 505, 305);
+      var x = myChart.addCategoryAxis("x", "Month");
+      x.addOrderRule("Date");
+      myChart.addMeasureAxis("y", "Volume Shares");
+      var s = myChart.addSeries(null, dimple.plot.line);
+      myChart.draw();
+    });
+  </script>
+</div>
+	
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by advertiser
+          </div>
+         <div class="chart-stage">
+          <div id="chartContainer1">
+   
+  <script type="text/javascript">
+    var svg3 = dimple.newSvg("#chartContainer1", 590, 400);
+    d3.tsv("data.tsv", function (data) {
+      data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])
+      var myChart = new dimple.chart(svg3, data);
+      myChart.setBounds(60, 30, 505, 305);
+      var x = myChart.addCategoryAxis("x", "Month");
+      x.addOrderRule("Date");
+      myChart.addMeasureAxis("y", "Unit Sales");
+      var s = myChart.addSeries("Channel", dimple.plot.area);
+      myChart.addLegend(60, 10, 500, 20, "right");
+      myChart.draw();
+    });
+  </script> 
+</div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+
+
+  </div>
+
+ </body>
+ </html>

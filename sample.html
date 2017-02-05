@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/public/css/style.css">
+	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+  	<script src="/d3.v3.min.js"></script>
+  	<script src="/dimple.v2.1.2.min.js"></script>
+    <style>
+    body {
+      margin: 50px;
+    }
+    </style>
+ </head>
+ <body>
+<!-- navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="navbar-brand" href="/">ABinBEV DataVisApp</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
+          <li><a  class="active" href="/post">PostEventLoop</a></li>
+          <li><a href="/whatif">WhatIfAnalyser</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbarend -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id='chartContainer2'>
+		<h2>Price Elasticity</h2>
+
+		<script type="text/javascript">
+			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
+			d3.csv('titanic1.csv', function(data) {
+			var ChartInstance = new dimple.chart(svg2,data);
+			ChartInstance.setBounds(60,30,510,305);
+			var x = ChartInstance.addCategoryAxis('x', 'Passenger Class');
+			// x.addOrderRule('Type');
+			var y = ChartInstance.addPctAxis('y', 'Count');
+			//y.showbycent = true;
+			//var y = ChartInstance.addMeasureAxis('y', 'Count');
+			var s = ChartInstance.addSeries("Status", dimple.plot.bar);
+			ChartInstance.addLegend(60, 10, 510, 20, "right");
+
+
+
+			ChartInstance.draw(1000);	
+
+			 });
+		</script>
+		</div>
+
+          </div>
+          <div class="chart-notes">
+            This is a sample text region to describe this chart.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 5 days)
+          </div>
+          <div class="chart-stage">
+           <div id='PiechartContainer12'>
+		<h2>Passenger Share By Class 1, Class 2, Class 3 </h2>
+        
+		<script type="text/javascript">
+			var svg12 = dimple.newSvg("#PiechartContainer12", 590, 400);
+			d3.csv("titanic_train.csv", function (data) {
+			var ChartInstance = new dimple.chart(svg12, data);
+			ChartInstance.setBounds(20, 20, 460, 360)
+			ChartInstance.addMeasureAxis("p", "Passenger Class");
+			ChartInstance.addSeries("Passenger Class", dimple.plot.pie);			
+			ChartInstance.addLegend(500, 20, 90, 300, "left");
+			ChartInstance.draw();
+			});
+		</script>
+	</div> 
+	
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by advertiser
+          </div>
+          <div class="chart-stage">
+          	<div class="chartContainer8">
+            <script type="text/javascript">
+            	var svg = dimple.newSvg("#chartContainer", 590, 400);
+			    d3.csv("titanic_train.csv", function (data) {
+			      // data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])
+			      var myChart = new dimple.chart(svg, data);
+			      myChart.setBounds(60, 30, 505, 305);
+			      var x = myChart.addCategoryAxis("x", "Month");
+			      x.addOrderRule("Date");
+			      myChart.addMeasureAxis("y", "Unit Sales");
+			      var s = myChart.addSeries(null, dimple.plot.area);
+			      myChart.draw();
+    			});
+            </script>
+            </div>
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p class="small text-muted">Built with ♥ by <a href="https://keen.io">Keen IO</a></p>
+
+  </div>
+<!-- ignore -->
+<div id='chartContainer2'>
+		<h2>Price Elasticity</h2>
+
+		<script type="text/javascript">
+			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
+			d3.csv('titanic1.csv', function(data) {
+			var ChartInstance = new dimple.chart(svg2,data);
+			ChartInstance.setBounds(60,30,510,305);
+			var x = ChartInstance.addCategoryAxis('x', 'Passenger Class');
+			// x.addOrderRule('Type');
+			var y = ChartInstance.addPctAxis('y', 'Count');
+			//y.showbycent = true;
+			//var y = ChartInstance.addMeasureAxis('y', 'Count');
+			var s = ChartInstance.addSeries("Status", dimple.plot.bar);
+			ChartInstance.addLegend(60, 10, 510, 20, "right");
+
+
+
+			ChartInstance.draw(1000);	
+
+			 });
+		</script>
+		</div>
+	
+	<div id='PiechartContainer12'>
+		<h2>Passenger Share By Class 1, Class 2, Class 3 </h2>
+        <h4><i>*The share of class 3 passengers was highest </i><h4>
+		<script type="text/javascript">
+			var svg12 = dimple.newSvg("#PiechartContainer12", 590, 400);
+			d3.csv("titanic_train.csv", function (data) {
+			var ChartInstance = new dimple.chart(svg12, data);
+			ChartInstance.setBounds(20, 20, 460, 360)
+			ChartInstance.addMeasureAxis("p", "Passenger Class");
+			ChartInstance.addSeries("Passenger Class", dimple.plot.pie);			
+			ChartInstance.addLegend(500, 20, 90, 300, "left");
+			ChartInstance.draw();
+			});
+		</script>
+	</div> 
+	
+	<div id='PiechartContainer1'>
+		<h2>Survivors by Gender (Pie chart)</h2>
+		<h4><i>*Females were given priority during the rescue</i><h4>
+		<script type="text/javascript">
+			var svg1 = dimple.newSvg("#PiechartContainer1", 590, 400);
+			d3.csv("titanic_train.csv", function (data) {
+			var ChartInstance = new dimple.chart(svg1, data);
+			ChartInstance.setBounds(20, 20, 460, 360)
+			ChartInstance.addMeasureAxis("p", "Survived");
+			ChartInstance.addSeries("Sex", dimple.plot.pie);
+			ChartInstance.addLegend(500, 20, 90, 300, "left");
+			ChartInstance.draw();
+			});
+		</script>
+	</div>  
+  	
+  	<div id='chartContainer4'>
+	<h2>Survivors by Age </h2>
+	<h4><i>*Senior passengers were given priority to Life-Boats as seen in the movie</i><h4>
+ 	<script type="text/javascript">
+ 	var svg4 = dimple.newSvg('#chartContainer4', 600,400);
+ 		d3.csv('titanic1.csv', function(data) {
+   		var ChartInstance = new dimple.chart(svg4,data);
+  		ChartInstance.setBounds(60,30,510,305);
+  		var x = ChartInstance.addCategoryAxis('x', 'Age');
+       // x.addOrderRule('Type');
+  		var y = ChartInstance.addPctAxis('y', 'Count');
+  		//y.showbycent = true;
+  		//var y = ChartInstance.addMeasureAxis('y', 'Count');
+        var s = ChartInstance.addSeries("Status", dimple.plot.bar);
+        ChartInstance.addLegend(60, 10, 510, 20, "right");
+
+
+
+ 		
+		ChartInstance.draw(1000);	
+
+		 });
+</script>
+  	</div>
+ 
+	<div id='chartContainer8'>
+	<h2>Survivors by Embarked </h2>
+	<h4><i>*Most 1st Class passengers aboarded the ship at Southampton UK</i><h4>
+	<script type="text/javascript">
+	var svg8 = dimple.newSvg('#chartContainer8', 600,400);
+	d3.csv('titanic1.csv', function(data) {
+	var ChartInstance = new dimple.chart(svg8,data);
+	ChartInstance.setBounds(60,30,510,305);
+	var x = ChartInstance.addCategoryAxis('x', 'Embarked');
+	// x.addOrderRule('Type');
+	var y = ChartInstance.addPctAxis('y', 'Count');
+	//y.showbycent = true;
+	//var y = ChartInstance.addMeasureAxis('y', 'Count');
+	var s = ChartInstance.addSeries("Status", dimple.plot.bar);
+	ChartInstance.addLegend(60, 10, 510, 20, "right");
+
+
+
+		ChartInstance.draw(1000); 
+
+
+	});
+	</script>
+	</div>	
+	
+		<div id='PiechartContainer2'>
+		<h2>Survivors by Embarked (Pie chart)</h2>
+		<h4><i>*Most 3rd Class passengers aboard the ship at Cherbourg , who were mostly from southern france & North Africa </i><h4>
+		
+		<script type="text/javascript">
+			var svg9 = dimple.newSvg("#PiechartContainer2", 590, 400);
+			d3.csv("titanic_train.csv", function (olddata) {
+			data =modify_data(olddata);			 
+			var ChartInstance = new dimple.chart(svg9, data);
+			ChartInstance.setBounds(20, 20, 460, 360)
+			ChartInstance.addMeasureAxis("p", "Survived");
+			ChartInstance.addSeries("Embarked", dimple.plot.pie);
+			ChartInstance.addLegend(500, 20, 90, 300, "left");
+			ChartInstance.draw();
+			});
+		</script>
+		
+		<script type="text/javascript">
+		    var ctr = 0;
+			function modify_data(data){
+				data.forEach(myFunction);	
+				return data;				
+			};
+			function myFunction(item) {
+			    if((item["Embarked"])=='S'){
+					(item["Embarked"])='Southampton';
+				} 
+				else if((item["Embarked"])=='C'){
+					(item["Embarked"])='Cherbourg';
+							} 	
+				else if((item["Embarked"])=='Q'){
+					(item["Embarked"])='Queenstown';
+				} 		
+				else {
+					(item["Embarked"])='NA';
+				};				
+			}
+		</script>
+	</div>
+
+		<div id="chartContainer10">
+		<h2>Passenger survival rate By </h2>
+		 
+		<h4><i>*shows that first class passengers were given priority to Life-Boats</i><h4>
+		<script type="text/javascript">
+			var svg10 = dimple.newSvg("#chartContainer10", 590, 400);
+			d3.csv("titanic_train.csv", function (data) {
+			var myChart = new dimple.chart(svg10, data);
+			  myChart.setBounds(60, 45, 510, 315)
+			  myChart.addCategoryAxis("x", "Passenger Class");
+			  myChart.addMeasureAxis("y", "Fare");
+			  myChart.addSeries("Survived", dimple.plot.bar);
+			  myChart.addLegend(200, 10, 380, 20, "right");
+			  myChart.draw();
+			});
+		  </script>
+		</div>
+
+ </body>
+ </html>
